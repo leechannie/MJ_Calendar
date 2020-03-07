@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainCalendar_Fragment">
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/everyday"
+            android:layout_width="300dp"
+            android:layout_height="77dp"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="3월 26일"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="#878686" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="521dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/CalendarList2"
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:text="125dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:text="추가" />
+    </LinearLayout>
+</RelativeLayout>
