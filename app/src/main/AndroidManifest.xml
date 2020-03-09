@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainCalendar_Search"/>
+        <activity android:name=".MainCalendar_Add"/>
+        <activity android:name=".MainCalendar_Modify"/>
+        <activity android:name=".MainCalendar_Add_Fragment"/>
+        <activity android:name=".MainCalendar_Fragment"/>
     </application>
 
 </manifest>

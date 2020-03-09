@@ -19,10 +19,12 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/alarm"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/alarm"
                 android:text="알림" />
 
             <Button
@@ -38,10 +40,12 @@
             android:layout_gravity="center"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/repeat"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/refresh"
                 android:text="반복" />
 
             <Button
@@ -57,10 +61,12 @@
             android:layout_gravity="center"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/location"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/location"
                 android:text="위치" />
 
             <Button
@@ -76,10 +82,12 @@
             android:layout_gravity="center"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/add"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/user"
                 android:text="참석" />
 
             <Button
@@ -96,10 +104,12 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/memo"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/edit"
                 android:text="메모" />
 
             <Button
