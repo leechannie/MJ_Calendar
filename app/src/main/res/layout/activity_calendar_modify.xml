@@ -8,23 +8,32 @@
     tools:context=".MainCalendar_Modify">
 
     <LinearLayout
+        android:id="@+id/delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/cancel"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:background="#00FF0000"
+            android:src="@drawable/clear"
             android:text="취소" />
 
-        <Button
-            android:id="@+id/save"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="45dp"
             android:layout_gravity="right"
-            android:layout_marginLeft="270dp"
+            android:layout_marginLeft="325dp"
+            android:layout_marginTop="10dp"
+            android:background="#00FFFFFF"
+            android:src="@drawable/trash"
             android:text="삭제" />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -107,7 +116,7 @@
                 android:text="추가" />
 
             <Button
-                android:id="@+id/add_memo"
+                android:id="@+id/add_detail"
                 android:layout_width="300dp"
                 android:layout_height="55dp"
                 android:text="항목 추가" />

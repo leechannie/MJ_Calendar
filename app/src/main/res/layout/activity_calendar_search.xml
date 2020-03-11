@@ -44,17 +44,10 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/color"
-                    android:layout_width="56dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp" />
-
-                <Button
                     android:id="@+id/calendar_list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:text="Button" />
 
