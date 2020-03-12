@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".MainCalendar_Alarm_Fragment">
+    tools:context=".MainCalendar_Color_Fragment">
 
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_height="61dp"
         android:background="#DADADA"
         android:gravity="center"
-        android:text="알림"
+        android:text="색상"
         android:textSize="24sp" />
 
     <View
@@ -24,45 +24,36 @@
         android:background="#AFAEAE" />
 
     <Button
-        android:id="@+id/None"
+        android:id="@+id/red"
         android:layout_width="match_parent"
         android:layout_height="63dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_custom_button"
-        android:text="없음" />
+        android:background="#FF7070" />
 
     <Button
-        android:id="@+id/everyday"
+        android:id="@+id/pink"
         android:layout_width="match_parent"
         android:layout_height="63dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/bg_custom_button"
-        android:text="이벤트 당일 (오전 9시)" />
+        android:background="#EE98FD" />
+
 
     <Button
-        android:id="@+id/oneago"
+        android:id="@+id/yellow"
         android:layout_width="match_parent"
         android:layout_height="63dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/bg_custom_button"
-        android:text="1일전 (오전 9시)" />
+        android:background="#FFC904" />
 
     <Button
-        android:id="@+id/twoago"
+        android:id="@+id/green"
         android:layout_width="match_parent"
         android:layout_height="63dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/bg_custom_button"
-        android:text="2일전 (오전 9시)" />
+        android:background="#A6E65C" />
 
     <Button
-        android:id="@+id/oneweekago"
+        android:id="@+id/blue"
         android:layout_width="match_parent"
         android:layout_height="63dp"
-        android:background="@drawable/bg_custom_button"
-        android:text="1주전"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"/>
+        android:background="#05D8F3" />
+
 
 
 </LinearLayout>

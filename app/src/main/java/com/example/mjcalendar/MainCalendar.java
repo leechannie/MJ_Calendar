@@ -24,7 +24,18 @@ public class MainCalendar extends AppCompatActivity {
         ImageButton my_info_button = (ImageButton) findViewById(R.id.my_info);
         ImageButton search_button = (ImageButton) findViewById(R.id.search);
         Button button = (Button) findViewById(R.id.button);
+        Button select = (Button) findViewById(R.id.select);
         schedule = (LinearLayout) findViewById(R.id.schedule);
+
+
+        select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), MainCalendar_Time_Fragment.class);
+                startActivity(intent);
+            }
+        });
 
         my_info_button.setOnClickListener(new View.OnClickListener() {
             @Override

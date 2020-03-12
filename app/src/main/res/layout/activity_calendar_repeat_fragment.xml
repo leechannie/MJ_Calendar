@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="550dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".MainCalendar_Repeat_Fragment">
 
@@ -12,6 +12,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="61dp"
+        android:background="#DADADA"
         android:gravity="center"
         android:text="반복"
         android:textSize="24sp" />
@@ -27,42 +28,56 @@
         android:layout_width="match_parent"
         android:layout_height="63dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/bg_custom_button"
         android:text="없음" />
 
     <Button
         android:id="@+id/everyday"
         android:layout_width="match_parent"
         android:layout_height="63dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_custom_button"
         android:text="매일" />
 
     <Button
         android:id="@+id/week"
         android:layout_width="match_parent"
         android:layout_height="63dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_custom_button"
         android:text="매주 월요일" />
 
     <Button
         android:id="@+id/month_day"
         android:layout_width="match_parent"
         android:layout_height="63dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_custom_button"
         android:text="매월 세번째 월요일" />
 
     <Button
         android:id="@+id/year_date"
         android:layout_width="match_parent"
         android:layout_height="63dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_custom_button"
         android:text="매년 3월 16일" />
 
     <Button
         android:id="@+id/every_week"
         android:layout_width="match_parent"
         android:layout_height="63dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_custom_button"
         android:text="주중 매일 (월-금)" />
 
     <Button
         android:id="@+id/custom"
         android:layout_width="match_parent"
         android:layout_height="63dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_custom_button"
         android:text="사용자화" />
 
 

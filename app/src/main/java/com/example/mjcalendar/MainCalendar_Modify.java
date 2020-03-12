@@ -17,6 +17,7 @@ public class MainCalendar_Modify extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_modify);
 
+        Button color_change = (Button) findViewById(R.id.color_change);
         ImageButton cancel = (ImageButton) findViewById(R.id.cancel);
         ImageButton time = (ImageButton) findViewById(R.id.time);
         Button time_detail_button = (Button) findViewById(R.id.time_detail);
@@ -24,6 +25,7 @@ public class MainCalendar_Modify extends AppCompatActivity {
         Button clock_detail = (Button) findViewById(R.id.clock_detail);
         ImageButton add = (ImageButton) findViewById(R.id.add);
         Button add_detail = (Button) findViewById(R.id.add_detail);
+
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +43,13 @@ public class MainCalendar_Modify extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 time_OnClickHandler(v);
+            }
+        });
+
+        color_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                color_OnClickHandler(v);
             }
         });
 
@@ -113,8 +122,28 @@ public class MainCalendar_Modify extends AppCompatActivity {
 //        builder.show();
 //    }
 
+    public void color_OnClickHandler(View view) {
+        View dialogView = getLayoutInflater().inflate(R.layout.activity_calendar_color_fragment, null);
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int pos)
+            {
+                ;
+
+                Toast.makeText(getApplicationContext(),"하이", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
     public void time_OnClickHandler(View view) {
-        View dialogView = getLayoutInflater().inflate(R.layout.activity_calendar_alarm_fragment, null);
+        View dialogView = getLayoutInflater().inflate(R.layout.activity_calendar_time_fragment, null);
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -134,7 +163,7 @@ public class MainCalendar_Modify extends AppCompatActivity {
     }
 
     public void clock_OnClickHandler(View view) {
-        View dialogView = getLayoutInflater().inflate(R.layout.activity_calendar_repeat_fragment, null);
+        View dialogView = getLayoutInflater().inflate(R.layout.activity_calendar_alarm_fragment, null);
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

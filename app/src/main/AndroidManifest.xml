@@ -20,10 +20,15 @@
         <activity android:name=".MainCalendar_Add"/>
         <activity android:name=".MainCalendar_Add_Fragment"/>
         <activity android:name=".MainCalendar_Alarm_Fragment"/>
+        <activity android:name=".MainCalendar_Color_Fragment"/>
         <activity android:name=".MainCalendar_Fragment"/>
+        <activity android:name=".MainCalendar_Location_Fragment"/>
+        <activity android:name=".MainCalendar_Memo_Fragment"/>
         <activity android:name=".MainCalendar_Modify"/>
+        <activity android:name=".MainCalendar_Participant_Fragment"/>
         <activity android:name=".MainCalendar_Repeat_Fragment"/>
         <activity android:name=".MainCalendar_Search"/>
+        <activity android:name=".MainCalendar_Time_Fragment"/>
 
 
     </application>
