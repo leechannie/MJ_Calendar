@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainCalendar"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MainCalendar">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +43,7 @@
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="602dp">
+        android:layout_height="495dp">
 
         <Button
             android:id="@+id/button"
@@ -54,16 +54,54 @@
         <LinearLayout
             android:id="@+id/schedule"
             android:layout_width="350dp"
-            android:layout_height="570dp"
+            android:layout_height="450dp"
             android:layout_gravity="center"
             android:background="#002196F3"
             android:orientation="vertical"></LinearLayout>
     </CalendarView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="73dp"
-        android:background="#AAAAAA" />
+        android:layout_height="60dp"
+        android:background="#8A8A8A"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/calendar_navi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            app:srcCompat="@drawable/calendar_navi" />
+
+        <ImageButton
+            android:id="@+id/todo_navi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            app:srcCompat="@drawable/clipboard_navi" />
+
+        <ImageButton
+            android:id="@+id/friends_navi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            app:srcCompat="@drawable/hug_navi" />
+
+        <ImageButton
+            android:id="@+id/notification_navi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            app:srcCompat="@drawable/report_navi" />
+    </LinearLayout>
 
 
 </LinearLayout>

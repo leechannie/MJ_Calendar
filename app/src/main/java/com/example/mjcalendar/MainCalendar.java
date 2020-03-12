@@ -21,6 +21,10 @@ public class MainCalendar extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
 
 
+        ImageButton todo_navi = (ImageButton) findViewById(R.id.todo_navi);
+        ImageButton friends_navi = (ImageButton) findViewById(R.id.friends_navi);
+        ImageButton notification_navi = (ImageButton) findViewById(R.id.notification_navi);
+
         ImageButton my_info_button = (ImageButton) findViewById(R.id.my_info);
         ImageButton search_button = (ImageButton) findViewById(R.id.search);
         Button button = (Button) findViewById(R.id.button);
@@ -28,11 +32,40 @@ public class MainCalendar extends AppCompatActivity {
         schedule = (LinearLayout) findViewById(R.id.schedule);
 
 
+
+//        todo_navi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(getApplicationContext(), MainCalendar.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        friends_navi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(getApplicationContext(), MainCalendar.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        notification_navi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(getApplicationContext(), MainCalendar.class);
+//                startActivity(intent);
+//            }
+//        });
+
+
         select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), MainCalendar_Time_Fragment.class);
+                Intent intent = new Intent(getApplicationContext(), MainCalendar_Modify.class);
                 startActivity(intent);
             }
         });
