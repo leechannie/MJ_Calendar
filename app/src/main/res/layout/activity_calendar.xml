@@ -40,68 +40,134 @@
 
     </LinearLayout>
 
-    <CalendarView
-        android:id="@+id/calendarView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="495dp">
+        android:layout_height="match_parent"
+        android:background="#1400BCD4"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="20dp"
-            android:layout_height="30dp"
-            android:text="Button" />
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#FFEB3B"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textColor="#3F51B5"
+            android:textSize="20sp" />
 
         <LinearLayout
-            android:id="@+id/schedule"
-            android:layout_width="350dp"
-            android:layout_height="450dp"
-            android:layout_gravity="center"
-            android:background="#002196F3"
-            android:orientation="vertical"></LinearLayout>
-    </CalendarView>
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#2196F3">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="일"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="월"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="화"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="수"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="목"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="금"
+                android:textSize="22sp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="토"
+                android:textSize="22sp" />
+
+
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:listSelector="#009688"
+            android:numColumns="7"></GridView>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#8A8A8A"
-        android:orientation="horizontal">
+        android:layout_height="156dp"
+        android:background="#914F4F">
 
         <ImageButton
-            android:id="@+id/calendar_navi"
+            android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="#00FFFFFF"
-            app:srcCompat="@drawable/calendar_navi" />
-
-        <ImageButton
-            android:id="@+id/todo_navi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="#00FFFFFF"
-            app:srcCompat="@drawable/clipboard_navi" />
-
-        <ImageButton
-            android:id="@+id/friends_navi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="#00FFFFFF"
-            app:srcCompat="@drawable/hug_navi" />
-
-        <ImageButton
-            android:id="@+id/notification_navi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="#00FFFFFF"
-            app:srcCompat="@drawable/report_navi" />
+            android:src="@drawable/account" />
     </LinearLayout>
+<!--    <CalendarView-->
+<!--        android:id="@+id/calendarView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="495dp">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button"-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:text="Button" />-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/schedule"-->
+<!--            android:layout_width="350dp"-->
+<!--            android:layout_height="450dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:background="#002196F3"-->
+<!--            android:orientation="vertical"></LinearLayout>-->
+<!--    </CalendarView>-->
 
 
 </LinearLayout>
