@@ -8,18 +8,22 @@ import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainCalendar extends Activity {
 
@@ -83,6 +87,22 @@ public class MainCalendar extends Activity {
             }
         });
 
+
+
+
+
+
+        my_info_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                color_OnClickHandler(v);
+            }
+        });
+
+
+
+
+
 //
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -119,6 +139,15 @@ public class MainCalendar extends Activity {
 
         Button button1 = (Button) findViewById(R.id.button);
         gridView = (GridView)findViewById(R.id.gridview);
+
+                gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(android.widget.AdapterView<?> parent, View view, int position, long id) {
+                color_OnClickHandler(view);
+
+
+            }
+        });
 
         // 오늘에 날짜를 세팅 해준다.
         long now = System.currentTimeMillis();
@@ -243,6 +272,45 @@ public class MainCalendar extends Activity {
     private class ViewHolder {
         TextView tvItemGridView;
     }
+
+    public void color_OnClickHandler(View view) {
+        View dialogView = getLayoutInflater().inflate(R.layout.activity_calendar_fragment, null);
+                ImageButton add_button = (ImageButton) dialogView.findViewById(R.id.add_button);
+                Button modify_button = (Button) dialogView.findViewById(R.id.CalendarList);
+
+        modify_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainCalendar_Modify.class);
+                startActivity(intent);
+            }
+        });
+                add_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainCalendar_Add.class);
+                startActivity(intent);
+            }
+        });
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int pos)
+            {
+                ;
+
+                Toast.makeText(getApplicationContext(),"하이", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+
 
 }
 //package com.example.mjcalendar;
