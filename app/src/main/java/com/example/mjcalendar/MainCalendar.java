@@ -28,7 +28,8 @@ public class MainCalendar extends Activity {
     /**
      * 연/월 텍스트뷰
      */
-    private TextView tvDate;
+
+
     /**
      * 그리드뷰 어댑터
      */
@@ -61,17 +62,9 @@ public class MainCalendar extends Activity {
         ImageButton my_info_button = (ImageButton) findViewById(R.id.my_info);
         ImageButton search_button = (ImageButton) findViewById(R.id.search);
 //        Button button = (Button) findViewById(R.id.button);
-        Button select = (Button) findViewById(R.id.select);
+
 //        schedule = (LinearLayout) findViewById(R.id.schedule);
 
-        select.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), MainCalendar_Modify.class);
-                startActivity(intent);
-            }
-        });
 
         my_info_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +116,8 @@ public class MainCalendar extends Activity {
 //            }
 //        });
 
-        tvDate = (TextView)findViewById(R.id.tv_date);
+
+        Button button1 = (Button) findViewById(R.id.button);
         gridView = (GridView)findViewById(R.id.gridview);
 
         // 오늘에 날짜를 세팅 해준다.
@@ -135,7 +129,8 @@ public class MainCalendar extends Activity {
         final SimpleDateFormat curDayFormat = new SimpleDateFormat("dd", Locale.KOREA);
 
         //현재 날짜 텍스트뷰에 뿌려줌
-        tvDate.setText(curYearFormat.format(date) + "/" + curMonthFormat.format(date));
+        button1.setText(curYearFormat.format(date) + "/" + curMonthFormat.format(date));
+
 
 //        tvDate.setText(4 + "/" + curMonthFormat.format(date)); //수정할때 사용
         //gridview 요일 표시
@@ -239,6 +234,7 @@ public class MainCalendar extends Activity {
             String sToday = String.valueOf(today);
             if (sToday.equals(getItem(position))) { //오늘 day 텍스트 컬러 변경
                 holder.tvItemGridView.setTextColor(getResources().getColor(R.color.color_000000));
+
             }
             return convertView;
         }

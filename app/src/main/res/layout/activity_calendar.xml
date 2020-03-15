@@ -19,20 +19,30 @@
             android:layout_marginLeft="5dp"
             android:background="@drawable/account" />
 
+
         <Button
-            android:id="@+id/select"
-            android:layout_width="150dp"
+            android:id="@+id/button"
+            android:layout_width="73dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="123dp"
+            android:background="#00CDDC39"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="29dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="97dp"
-            android:text="날짜 바꾸기" />
+            android:layout_marginTop="20dp"
+            android:background="#00FFFFFF"
+            android:src="@drawable/bleach2" />
 
         <ImageButton
             android:id="@+id/search"
             android:layout_width="42dp"
             android:layout_height="35dp"
             android:layout_gravity="right|center_vertical"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="105dp"
             android:background="#00FFFFFF"
             android:src="@drawable/search"
             android:text="검색" />
@@ -43,38 +53,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#1400BCD4"
+        android:background="#0000BCD4"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_date"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#FFEB3B"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:textColor="#3F51B5"
-            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:background="#2196F3">
+            android:background="#5EC9C9C9">
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/calendar_custom"
                 android:gravity="center"
                 android:text="일"
-                android:textSize="22sp" />
+                android:textSize="21sp" />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/calendar_custom"
                 android:gravity="center"
                 android:text="월"
                 android:textSize="22sp" />
@@ -84,24 +87,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/calendar_custom"
                 android:gravity="center"
                 android:text="화"
-                android:textSize="22sp" />
+                android:textSize="21sp" />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/calendar_custom"
                 android:gravity="center"
                 android:text="수"
-                android:textSize="22sp" />
+                android:textSize="21sp" />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/calendar_custom"
                 android:gravity="center"
                 android:text="목"
                 android:textSize="22sp" />
@@ -111,15 +117,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/calendar_custom"
                 android:gravity="center"
                 android:text="금"
-                android:textSize="22sp" />
+                android:textSize="21sp" />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/calendar_custom"
                 android:gravity="center"
                 android:text="토"
                 android:textSize="22sp" />
@@ -130,24 +138,64 @@
         <GridView
             android:id="@+id/gridview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:listSelector="#009688"
+            android:listSelector="#4AC6C6C6"
             android:numColumns="7"></GridView>
 
     </LinearLayout>
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+
+        android:background="?android:attr/listDivider" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="156dp"
-        android:background="#914F4F">
+        android:layout_height="55dp"
+        android:background="#00914F4F">
 
         <ImageButton
-            android:id="@+id/imageButton"
+
+            android:id="@+id/calendar_navi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@drawable/account" />
+            android:background="#00FFFFFF"
+            android:src="@drawable/calendar_navi" />
+
+        <ImageButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:src="@drawable/clipboard_navi" />
+
+        <ImageButton
+
+            android:id="@+id/friends_navi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:src="@drawable/hug_navi" />
+
+        <ImageButton
+
+            android:id="@+id/notification_navi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:src="@drawable/report_navi" />
+
+
     </LinearLayout>
 <!--    <CalendarView-->
 <!--        android:id="@+id/calendarView"-->
