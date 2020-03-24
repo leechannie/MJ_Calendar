@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainCalendar">
+        <activity android:name=".Login_Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,6 +30,13 @@
         <activity android:name=".MainCalendar_Repeat_Fragment"/>
         <activity android:name=".MainCalendar_Search"/>
         <activity android:name=".MainCalendar_Time_Fragment"/>
+        <activity android:name=".Mypage_main"/>
+        <activity android:name=".Mypage_rename"/>
+        <activity android:name=".Mypage_repassword"/>
+        <activity android:name=".Login_Register"/>
+        <activity android:name=".MainCalendar"/>
+        <activity android:name=".MainCalendar_TodoList"/>
+
 
 
     </application>

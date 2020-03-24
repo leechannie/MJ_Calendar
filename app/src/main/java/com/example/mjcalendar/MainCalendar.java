@@ -59,12 +59,13 @@ public class MainCalendar extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_calendar);
-//        ImageButton todo_navi = (ImageButton) findViewById(R.id.todo_navi);
+        ImageButton todo_navi = (ImageButton) findViewById(R.id.todo_navi);
 //        ImageButton friends_navi = (ImageButton) findViewById(R.id.friends_navi);
 //        ImageButton notification_navi = (ImageButton) findViewById(R.id.notification_navi);
 
         ImageButton my_info_button = (ImageButton) findViewById(R.id.my_info);
         ImageButton search_button = (ImageButton) findViewById(R.id.search);
+
 //        Button button = (Button) findViewById(R.id.button);
 
 //        schedule = (LinearLayout) findViewById(R.id.schedule);
@@ -73,8 +74,8 @@ public class MainCalendar extends Activity {
         my_info_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //  Intent intent = new Intent(getApplicationContext(),MainCalendar_Search.class);
-                //  startActivity(intent);
+                  Intent intent = new Intent(getApplicationContext(),Mypage_main.class);
+                  startActivity(intent);
             }
         });
 
@@ -87,17 +88,26 @@ public class MainCalendar extends Activity {
             }
         });
 
-
-
-
-
-
-        my_info_button.setOnClickListener(new View.OnClickListener() {
+        todo_navi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                color_OnClickHandler(v);
+
+                Intent intent = new Intent(getApplicationContext(), MainCalendar_TodoList.class);
+                startActivity(intent);
             }
         });
+
+
+
+
+
+
+//        my_info_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                color_OnClickHandler(v);
+//            }
+//        });
 
 
 

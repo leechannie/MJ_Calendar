@@ -26,19 +26,20 @@ public class Login_Main extends AppCompatActivity {
         Button login_button = (Button) findViewById(R.id.login_button);
         Button register_button = (Button) findViewById(R.id.register_button);
 
-        register_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent registerIntent = new Intent(Login_Main.this, com.example.mjcalendar.Login_Register.class);
-                Login_Main.this.startActivity(registerIntent);
-            }
-        });
+        //파이어베이스 오류
+//        register_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(),Login_Register.class);
+//                startActivity(intent);
+//            }
+//        });
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ifIntent = new Intent(Login_Main.this, com.example.mjcalendar.Mypage_main.class);
-                Login_Main.this.startActivity(ifIntent);
+                Intent intent = new Intent(getApplicationContext(),MainCalendar.class);
+                startActivity(intent);
             }
         });
     }

@@ -36,16 +36,25 @@ public class Mypage_main extends AppCompatActivity {
         rename_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent renameIntent = new Intent(Mypage_main.this, com.example.mjcalendar.Mypage_rename.class);
-                Mypage_main.this.startActivity(renameIntent);
+                Intent intent = new Intent(getApplicationContext(),Mypage_rename.class);
+                startActivity(intent);
+
             }
         });
 
         repass_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent repassIntent = new Intent(Mypage_main.this, com.example.mjcalendar.Mypage_repassword.class);
-                Mypage_main.this.startActivity(repassIntent);
+                Intent intent = new Intent(getApplicationContext(),Mypage_repassword.class);
+                startActivity(intent);
+            }
+        });
+
+        logout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Login_Main.class);
+                startActivity(intent);
             }
         });
 

@@ -169,6 +169,7 @@
 
         <ImageButton
 
+            android:id="@+id/todo_navi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
