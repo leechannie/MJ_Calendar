@@ -147,7 +147,7 @@ public class MainCalendar extends Activity {
 //        });
 
 
-        Button button1 = (Button) findViewById(R.id.button);
+        final Button button1 = (Button) findViewById(R.id.button);
         gridView = (GridView)findViewById(R.id.gridview);
 
                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -186,6 +186,7 @@ public class MainCalendar extends Activity {
 
         //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
         mCal.set(Integer.parseInt(curYearFormat.format(date)), Integer.parseInt(curMonthFormat.format(date)) - 1, 1);
+
 //        mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1); //수정할때 사용
         int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
         //1일 - 요일 매칭 시키기 위해 공백 add
@@ -196,6 +197,24 @@ public class MainCalendar extends Activity {
 
         gridAdapter = new GridAdapter(getApplicationContext(), dayList);
         gridView.setAdapter(gridAdapter);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                button1.setText(curYearFormat.format(date) + "/" + 5);
+                mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1);
+                int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
+                //1일 - 요일 매칭 시키기 위해 공백 add
+                for (int i = 1; i < dayNum; i++) {
+                    dayList.add("");
+                }
+                setCalendarDate(mCal.get(Calendar.MONTH) + 1);
+
+                gridAdapter = new GridAdapter(getApplicationContext(), dayList);
+                gridView.setAdapter(gridAdapter);
+            }
+        });
 
     }
 
