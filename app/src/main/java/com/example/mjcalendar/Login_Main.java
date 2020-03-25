@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,14 +27,13 @@ public class Login_Main extends AppCompatActivity {
         Button login_button = (Button) findViewById(R.id.login_button);
         Button register_button = (Button) findViewById(R.id.register_button);
 
-        //파이어베이스 오류
-//        register_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(),Login_Register.class);
-//                startActivity(intent);
-//            }
-//        });
+        register_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainCalendar.class);
+                startActivity(intent);
+            }
+        });
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
