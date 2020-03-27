@@ -3,10 +3,12 @@ package com.example.mjcalendar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -38,6 +40,35 @@ public class Login_Register extends AppCompatActivity {
 
        Button register = (Button) findViewById(R.id.register);
 
+       ImageButton delete_name = (ImageButton) findViewById(R.id.delete_name);
+       ImageButton delete_email = (ImageButton) findViewById(R.id.delete_email);
+       ImageButton delete_pass = (ImageButton) findViewById(R.id.delete_pass);
+       ImageButton delete_repass = (ImageButton) findViewById(R.id.delete_repass);
+
+        delete_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                register_name.setText("");
+            }
+        });
+        delete_email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                register_email.setText("");
+            }
+        });
+        delete_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                register_pass.setText("");
+            }
+        });
+        delete_repass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                register_repass.setText("");
+            }
+        });
     }
     public void onClick (View  v){
         String email = register_email.getText().toString();
@@ -51,24 +82,26 @@ public class Login_Register extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(Login_Register.this, "회원가입 성공",
-                                            Toast.LENGTH_SHORT).show();
+                                    startToast("회원가입 성공");
+                                    Intent intent = new Intent(getApplication(), Login_Main.class);
+                                    startActivity(intent);
                                 } else {
                                     if (task.getException() != null) { //에러 발생시
-                                        Toast.makeText(Login_Register.this, task.getException().toString(),
-                                                Toast.LENGTH_SHORT).show();
+                                        startToast("이메일 혹은 비밀번호가 틀렸습니다.");
                                     }
                                 }
                             }
                         });
             } else {
-                Toast.makeText(this, "비밀번호를 정확히 입력해주세요",
-                        Toast.LENGTH_SHORT).show();
+                startToast("비밀번호가 일치하지 않습니다.");
             }
         } else {
-            Toast.makeText(this, "이메일 또는 비밀번호를 입력해주세요",
-                    Toast.LENGTH_SHORT).show();
+            startToast("이메일 또는 비밀번호를 입력해주세요");
         }
+    }
+
+    private void startToast(String msg){
+        Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
     }
 }
 

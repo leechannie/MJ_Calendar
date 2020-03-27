@@ -29,13 +29,22 @@
 
         <EditText
             android:id="@+id/login_email"
-            android:layout_width="400dp"
+            android:layout_width="380dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:ems="10"
             android:hint="이메일"
             android:inputType="textEmailAddress"
             android:textColor="#AAAAAA" />
+
+        <ImageButton
+            android:id="@+id/delete_loginid"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
     </LinearLayout>
 
@@ -46,13 +55,21 @@
 
         <EditText
             android:id="@+id/login_pass"
-            android:layout_width="400dp"
+            android:layout_width="380dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:ems="10"
             android:hint="비밀번호"
             android:inputType="textPassword"
-            android:textColor="#AA686666" />
+            android:textColor="#AA686666"></EditText>
+        <ImageButton
+            android:id="@+id/delete_loginpass"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
     </LinearLayout>
 
     <FrameLayout
@@ -71,6 +88,7 @@
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/logingraybutton"
+                android:onClick="onClick"
                 android:text="로그인"
                 android:textColor="#AA686666"
                 android:textSize="22sp" />

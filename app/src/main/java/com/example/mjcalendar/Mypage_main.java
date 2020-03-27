@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.io.InputStream;
 
 public class Mypage_main extends AppCompatActivity {
@@ -53,12 +55,20 @@ public class Mypage_main extends AppCompatActivity {
         logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(),Login_Main.class);
                 startActivity(intent);
+                startToast("로그아웃");
             }
-        });
+      });
 
+        if (FirebaseAuth.getInstance().getCurrentUser() == null){
+            Intent intent = new Intent(getApplicationContext(),Login_Main.class);
+            startActivity(intent);
+        }
 
     }
-
+    private void startToast(String msg){
+        Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
+    }
 }
