@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainCalendar_TodoList extends AppCompatActivity {
     Button boxAddButton ;
+    Button Button4;
+    View TodoAddButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +27,25 @@ public class MainCalendar_TodoList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //도진 테스트 코드
+        boxAddButton = (Button) findViewById(R.id.boxAddButton);
+        Button4 = (Button)findViewById(R.id.button4);
+        TodoAddButton = (View)findViewById(R.id.TodoAddButton);
+        TodoAddButton.setVisibility(View.INVISIBLE);
+        boxAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                TodoAddButton.setVisibility(View.VISIBLE);
+            }
+        });
 
-
-
+        Button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                // 체크박스 생성해줘야됨.
+                TodoAddButton.setVisibility(View.INVISIBLE);
+            }
+        });
 //        boxAddButton = (Button) findViewById(R.id.boxAddButton);
 //        boxAddButton.setOnClickListener(new View.OnClickListener() {
 //                                            @Override

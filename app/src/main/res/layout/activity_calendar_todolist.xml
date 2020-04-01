@@ -48,6 +48,7 @@
                     android:text="CheckBox" />
 
                 <LinearLayout
+                    android:id="@+id/TodoAddButton"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:orientation="horizontal">
