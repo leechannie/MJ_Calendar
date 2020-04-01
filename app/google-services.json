@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "482808975606",
+    "firebase_url": "https://mjcalendar2020.firebaseio.com",
+    "project_id": "mjcalendar2020",
+    "storage_bucket": "mjcalendar2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482808975606:android:04f5369499dcc6811c5cd7",
+        "android_client_info": {
+          "package_name": "com.example.mjcalendar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482808975606-q97g0oghg6ki17dht55gaccolejae5k2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU4tbEXvkhO32VlQ9p6q39QX97xHxH64s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482808975606-q97g0oghg6ki17dht55gaccolejae5k2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
