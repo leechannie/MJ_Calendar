@@ -43,7 +43,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:background="#FFFFFF"
+            android:background="#00FFFFFF"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
     </LinearLayout>
@@ -62,13 +62,14 @@
             android:hint="비밀번호"
             android:inputType="textPassword"
             android:textColor="#AA686666"></EditText>
+
         <ImageButton
             android:id="@+id/delete_loginpass"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:background="#FFFFFF"
+            android:background="#00FFFFFF"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
     </LinearLayout>
 
