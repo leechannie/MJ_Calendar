@@ -25,6 +25,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
+
 public class MainCalendar extends Activity {
 
     LinearLayout schedule;
@@ -38,6 +40,7 @@ public class MainCalendar extends Activity {
      * 그리드뷰 어댑터
      */
     private GridAdapter gridAdapter;
+    private GridAdapter1 gridAdapter1;
 
     /**
      * 일 저장 할 리스트
@@ -74,8 +77,8 @@ public class MainCalendar extends Activity {
         my_info_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  Intent intent = new Intent(getApplicationContext(),Mypage_main.class);
-                  startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(),Mypage_main.class);
+                startActivity(intent);
             }
         });
 
@@ -150,7 +153,7 @@ public class MainCalendar extends Activity {
         final Button button1 = (Button) findViewById(R.id.button);
         gridView = (GridView)findViewById(R.id.gridview);
 
-                gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(android.widget.AdapterView<?> parent, View view, int position, long id) {
                 color_OnClickHandler(view);
@@ -184,6 +187,46 @@ public class MainCalendar extends Activity {
 
         mCal = Calendar.getInstance();
 
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<String> blank_list = new ArrayList<String>();
+
+                button1.setText(curYearFormat.format(date) + "/" + 5);
+
+                mCal.set(Integer.parseInt(curYearFormat.format(date)), Integer.parseInt(curMonthFormat.format(date)) - 1, 1);
+
+//        mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1); //수정할때 사용
+                int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
+                //1일 - 요일 매칭 시키기 위해 공백 add
+                for (int i = 1; i < dayNum; i++) {
+                    dayList.add("");
+                }
+                setCalendarDate(mCal.get(Calendar.MONTH) + 1);
+
+
+                gridAdapter1 = new GridAdapter1(getApplicationContext(),blank_list);
+                gridView.setAdapter(gridAdapter1);
+                gridAdapter = new GridAdapter(getApplicationContext(), dayList);
+                gridView.setAdapter(gridAdapter);
+
+//                mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1);
+//
+////        mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1); //수정할때 사용
+//                int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
+//                //1일 - 요일 매칭 시키기 위해 공백 add
+//                for (int i = 1; i < dayNum; i++) {
+//                    dayList.add("");
+//                }
+//                setCalendarDate(mCal.get(Calendar.MONTH) + 1);
+//
+//                gridAdapter = new GridAdapter(getApplicationContext(), dayList);
+//                gridView.setAdapter(gridAdapter);
+
+
+            }
+        });
+
         //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
         mCal.set(Integer.parseInt(curYearFormat.format(date)), Integer.parseInt(curMonthFormat.format(date)) - 1, 1);
 
@@ -198,23 +241,32 @@ public class MainCalendar extends Activity {
         gridAdapter = new GridAdapter(getApplicationContext(), dayList);
         gridView.setAdapter(gridAdapter);
 
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        button1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ArrayList<String> blank_list = new ArrayList<String>();
+//                gridAdapter1 = new GridAdapter1(getApplicationContext(),blank_list);
+//                gridView.setAdapter(gridAdapter1);
+//                button1.setText(curYearFormat.format(date) + "/" + 5);
+//                mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1);
+//                int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
+//                //1일 - 요일 매칭 시키기 위해 공백 add
+//                for (int i = 1; i < dayNum; i++) {
+//                    dayList.add("");
+//                }
+//                setCalendarDate(mCal.get(Calendar.MONTH) + 1);
+//                gridAdapter = new GridAdapter(getApplicationContext(), dayList);
+//                gridView.setAdapter(gridAdapter);
+//
+//
+//            }
+//        });
 
-                button1.setText(curYearFormat.format(date) + "/" + 5);
-                mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1);
-                int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
-                //1일 - 요일 매칭 시키기 위해 공백 add
-                for (int i = 1; i < dayNum; i++) {
-                    dayList.add("");
-                }
-                setCalendarDate(mCal.get(Calendar.MONTH) + 1);
 
-                gridAdapter = new GridAdapter(getApplicationContext(), dayList);
-                gridView.setAdapter(gridAdapter);
-            }
-        });
+
+
+
+
 
     }
 
@@ -236,6 +288,68 @@ public class MainCalendar extends Activity {
      * 그리드뷰 어댑터
      *
      */
+    private class GridAdapter1 extends BaseAdapter {
+
+        private final List<String> list;
+
+        private final LayoutInflater inflater;
+
+        /**
+         * 생성자
+         *
+         * @param applicationContext
+         * @param blank_list
+         */
+        public GridAdapter1(Context applicationContext, ArrayList<String> blank_list) {
+            this.list = blank_list;
+            this.inflater = (LayoutInflater)applicationContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+
+        @Override
+        public int getCount() {
+            return list.size();
+        }
+
+        @Override
+        public String getItem(int position) {
+            return list.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            ViewHolder holder = null;
+
+            if (convertView == null) {
+                convertView = inflater.inflate(R.layout.item_calendar_gridview, parent, false);
+                holder = new ViewHolder();
+
+                holder.tvItemGridView = (TextView)convertView.findViewById(R.id.tv_item_gridview);
+
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder)convertView.getTag();
+            }
+            holder.tvItemGridView.setText("" + getItem(position));
+
+            //해당 날짜 텍스트 컬러,배경 변경
+            mCal = Calendar.getInstance();
+            //오늘 day 가져옴
+            Integer today = mCal.get(Calendar.DAY_OF_MONTH);
+            String sToday = String.valueOf(today);
+            if (sToday.equals(getItem(position))) { //오늘 day 텍스트 컬러 변경
+                holder.tvItemGridView.setTextColor(getResources().getColor(R.color.color_000000));
+
+            }
+            return convertView;
+        }
+    }
+
     private class GridAdapter extends BaseAdapter {
 
         private final List<String> list;
@@ -304,8 +418,8 @@ public class MainCalendar extends Activity {
 
     public void color_OnClickHandler(View view) {
         View dialogView = getLayoutInflater().inflate(R.layout.activity_calendar_fragment, null);
-                ImageButton add_button = (ImageButton) dialogView.findViewById(R.id.add_button);
-                Button modify_button = (Button) dialogView.findViewById(R.id.CalendarList);
+        ImageButton add_button = (ImageButton) dialogView.findViewById(R.id.add_button);
+        Button modify_button = (Button) dialogView.findViewById(R.id.CalendarList);
 
         modify_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -314,7 +428,7 @@ public class MainCalendar extends Activity {
                 startActivity(intent);
             }
         });
-                add_button.setOnClickListener(new View.OnClickListener() {
+        add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),MainCalendar_Add.class);
