@@ -187,14 +187,29 @@ public class MainCalendar extends Activity {
 
         mCal = Calendar.getInstance();
 
+
+
+        //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
+        mCal.set(Integer.parseInt(curYearFormat.format(date)), Integer.parseInt(curMonthFormat.format(date)) - 1, 1);
+
+//        mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1); //수정할때 사용
+        int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
+        //1일 - 요일 매칭 시키기 위해 공백 add
+        for (int i = 1; i < dayNum; i++) {
+            dayList.add("");
+        }
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ArrayList<String> blank_list = new ArrayList<String>();
-
+//                gridAdapter1 = new GridAdapter1(getApplicationContext(),blank_list);
+//                gridView.setAdapter(gridAdapter1);
                 button1.setText(curYearFormat.format(date) + "/" + 5);
+                dayList = new ArrayList<String>();
 
-                mCal.set(Integer.parseInt(curYearFormat.format(date)), Integer.parseInt(curMonthFormat.format(date)) - 1, 1);
+
+                mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1);
 
 //        mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1); //수정할때 사용
                 int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
@@ -204,9 +219,6 @@ public class MainCalendar extends Activity {
                 }
                 setCalendarDate(mCal.get(Calendar.MONTH) + 1);
 
-
-                gridAdapter1 = new GridAdapter1(getApplicationContext(),blank_list);
-                gridView.setAdapter(gridAdapter1);
                 gridAdapter = new GridAdapter(getApplicationContext(), dayList);
                 gridView.setAdapter(gridAdapter);
 
@@ -227,15 +239,6 @@ public class MainCalendar extends Activity {
             }
         });
 
-        //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
-        mCal.set(Integer.parseInt(curYearFormat.format(date)), Integer.parseInt(curMonthFormat.format(date)) - 1, 1);
-
-//        mCal.set(Integer.parseInt(curYearFormat.format(date)), 5 - 1, 1); //수정할때 사용
-        int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
-        //1일 - 요일 매칭 시키기 위해 공백 add
-        for (int i = 1; i < dayNum; i++) {
-            dayList.add("");
-        }
         setCalendarDate(mCal.get(Calendar.MONTH) + 1);
 
         gridAdapter = new GridAdapter(getApplicationContext(), dayList);
