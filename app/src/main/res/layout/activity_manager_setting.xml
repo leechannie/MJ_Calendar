@@ -12,46 +12,67 @@
         android:layout_height="50sp"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/BackBtn"
-            android:layout_width="40sp"
+            android:layout_width="30sp"
             android:layout_height="match_parent"
-            android:background="#FFFFFF" />
+            android:background="#FFFFFF"
+            android:gravity="center"
+            app:srcCompat="@drawable/backspace"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"/>
 
         <TextView
             android:id="@+id/textView3"
+            android:background="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="관리자용" />
+            android:gravity="center"
+            android:text="관리자용"
+            android:layout_marginRight="30sp"
+            android:textSize="25sp"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_academic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="0sp"
+        android:textSize="15sp"
         android:text="학사 관리" />
 
     <Button
         android:id="@+id/btn_notice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="0sp"
+        android:textSize="15sp"
         android:text="공지사항" />
 
     <Button
         android:id="@+id/btn_usermanage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="0sp"
+        android:textSize="15sp"
         android:text="유저 관리" />
 
-    <Button
-        android:id="@+id/btn_logout"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="로그 아웃"
-        android:layout_marginTop="50sp"
-        android:layout_margin="20sp"
-        android:background="@drawable/manager_logout_button"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:layout_marginBottom="50sp"
+            android:background="@drawable/manager_logout_button"
+            android:text="로그 아웃" />
+    </LinearLayout>
 
 
 </LinearLayout>
