@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,6 +47,16 @@ public class Login_Register extends AppCompatActivity {
        ImageButton delete_pass = (ImageButton) findViewById(R.id.delete_pass);
        ImageButton delete_repass = (ImageButton) findViewById(R.id.delete_repass);
 
+       // 회원가입 버튼
+        // 로그인 버튼
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createUser();
+            }
+        });
+
+       // 텍스트 전체 삭제 버튼
         delete_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,12 +82,15 @@ public class Login_Register extends AppCompatActivity {
             }
         });
     }
-    public void onClick (View  v){
+    // 회원가입 기능
+    public void createUser (){
         String email = register_email.getText().toString();
         String password = register_pass.getText().toString();
         String passwordCheck = register_repass.getText().toString();
+
+
         if (email.length() > 0 && password.length() > 0 && passwordCheck.length() > 0) { //세 개의 입력칸이 모두 값이 입력될때
-            if (password.equals(passwordCheck)) {
+            if (password.equals(passwordCheck)) { //비밀번호 확인
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -83,7 +98,7 @@ public class Login_Register extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     startToast("회원가입 성공");
-                                    Intent intent = new Intent(getApplication(), Login_Main.class);
+                                    Intent intent = new Intent(getApplication(), Login_Main.class); //회원가입시 메인으로 이동
                                     startActivity(intent);
                                 } else {
                                     if (task.getException() != null) { //에러 발생시
@@ -100,8 +115,13 @@ public class Login_Register extends AppCompatActivity {
         }
     }
 
+
     private void startToast(String msg){
         Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
+    }
+    private void check_Id(View v){
+        String email = register_email.getText().toString();
+        //currentUser.sendEmailVerification(email)
     }
 }
 

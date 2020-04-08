@@ -44,6 +44,15 @@ public class Login_Main extends AppCompatActivity {
         ImageButton delete_loginid = (ImageButton) findViewById(R.id.delete_loginid) ;
         ImageButton delete_loginpass = (ImageButton) findViewById(R.id.delete_loginpass) ;
 
+        // 로그인 버튼
+        login_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginUser();
+            }
+        });
+
+        // 회원가입 페이지로 이동
         register_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +60,7 @@ public class Login_Main extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        // 텍스트 전체 삭제 버튼
         delete_loginid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,8 +75,8 @@ public class Login_Main extends AppCompatActivity {
         });
 
 }
-
-    public void onClick(View v) {
+    // 로그인 기능 구현
+    private void loginUser() {
         String email = login_email.getText().toString();
         String password = login_pass.getText().toString();
         if (email.length() > 0 && password.length() > 0) { //세 개의 입력칸이 모두 값이 입력될때

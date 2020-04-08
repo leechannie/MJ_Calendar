@@ -131,7 +131,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
             android:background="@drawable/logingraybutton"
-            android:onClick="onClick"
             android:text="회원가입"
             android:textColor="#AA686666"
             android:textSize="22sp" />
