@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -316,6 +317,17 @@ public class MainCalendar extends Activity {
         View dialogView = getLayoutInflater().inflate(R.layout.activity_calendar_fragment, null);
         ImageButton add_button = (ImageButton) dialogView.findViewById(R.id.add_button);
         Button modify_button = (Button) dialogView.findViewById(R.id.CalendarList);
+        TextView everyday = (TextView) dialogView.findViewById(R.id.everyday);
+
+
+
+        final View add = getLayoutInflater().inflate(R.layout.activity_calendar_add, null);
+        EditText List_name = (EditText) add.findViewById(R.id.List_name);
+        ImageButton save = (ImageButton) add.findViewById(R.id.save);
+
+        modify_button.setText(List_name.getText());
+
+
 
         modify_button.setOnClickListener(new View.OnClickListener() {
             @Override

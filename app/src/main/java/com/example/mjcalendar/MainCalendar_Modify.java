@@ -5,9 +5,11 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -31,6 +33,8 @@ public class MainCalendar_Modify extends AppCompatActivity {
         Button clock_detail = (Button) findViewById(R.id.clock_detail);
         ImageButton add = (ImageButton) findViewById(R.id.add);
         Button add_detail = (Button) findViewById(R.id.add_detail);
+        EditText List_name = (EditText) findViewById(R.id.List_name);
+
 
 
         cancel.setOnClickListener(new View.OnClickListener() {

@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,15 +18,14 @@ public class MainCalendar_Fragment extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_fragment);
 
+        final TextView everyday= findViewById(R.id.everyday);
         ImageButton add_button =  findViewById(R.id.add_button);
+        View add = getLayoutInflater().inflate(R.layout.activity_calendar_add, null);
+        final EditText List_name = (EditText) add.findViewById(R.id.List_name);
 
-        add_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),MainCalendar_Add.class);
-                startActivity(intent);
-            }
-        });
+        everyday.setText(List_name.getText());
+
+
 
 
     }

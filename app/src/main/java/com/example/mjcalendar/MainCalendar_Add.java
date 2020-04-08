@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -26,12 +27,14 @@ public class MainCalendar_Add extends AppCompatActivity {
 
         Button color_change = (Button) findViewById(R.id.color_change);
         ImageButton cancel = (ImageButton) findViewById(R.id.cancel);
+
         ImageButton time = (ImageButton) findViewById(R.id.time);
         Button time_detail_button = (Button) findViewById(R.id.time_detail);
         ImageButton clock = (ImageButton) findViewById(R.id.clock);
         Button clock_detail = (Button) findViewById(R.id.clock_detail);
         ImageButton add = (ImageButton) findViewById(R.id.add);
         Button add_detail = (Button) findViewById(R.id.add_detail);
+
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
