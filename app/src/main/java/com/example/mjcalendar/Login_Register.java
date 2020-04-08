@@ -40,15 +40,14 @@ public class Login_Register extends AppCompatActivity {
 
         ImageView register_ima = (ImageView) findViewById(R.id.register_ima);
 
-       Button register = (Button) findViewById(R.id.register);
+        Button register = (Button) findViewById(R.id.register);
 
-       ImageButton delete_name = (ImageButton) findViewById(R.id.delete_name);
-       ImageButton delete_email = (ImageButton) findViewById(R.id.delete_email);
-       ImageButton delete_pass = (ImageButton) findViewById(R.id.delete_pass);
-       ImageButton delete_repass = (ImageButton) findViewById(R.id.delete_repass);
+        ImageButton delete_name = (ImageButton) findViewById(R.id.delete_name);
+        ImageButton delete_email = (ImageButton) findViewById(R.id.delete_email);
+        ImageButton delete_pass = (ImageButton) findViewById(R.id.delete_pass);
+        ImageButton delete_repass = (ImageButton) findViewById(R.id.delete_repass);
 
-       // 회원가입 버튼
-        // 로그인 버튼
+        // 회원가입 버튼
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +55,7 @@ public class Login_Register extends AppCompatActivity {
             }
         });
 
-       // 텍스트 전체 삭제 버튼
+        // 텍스트 전체 삭제 버튼
         delete_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,8 +81,15 @@ public class Login_Register extends AppCompatActivity {
             }
         });
     }
+
+    //사용자가 non-null인지 확인
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+    }
+
     // 회원가입 기능
-    public void createUser (){
+    private void createUser() {
         String email = register_email.getText().toString();
         String password = register_pass.getText().toString();
         String passwordCheck = register_repass.getText().toString();
@@ -116,13 +122,7 @@ public class Login_Register extends AppCompatActivity {
     }
 
 
-    private void startToast(String msg){
-        Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
-    }
-    private void check_Id(View v){
-        String email = register_email.getText().toString();
-        //currentUser.sendEmailVerification(email)
+    private void startToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }
-
-
