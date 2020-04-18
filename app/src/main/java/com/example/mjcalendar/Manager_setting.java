@@ -1,16 +1,12 @@
 package com.example.mjcalendar;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.MenuItem;
 
 
 /*
@@ -50,8 +46,8 @@ public class Manager_setting extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //페이지 넘기기
-                Intent intent = new Intent(getApplicationContext(),Manager_calendar.class);
-                startActivityForResult(intent,sub);
+                Intent intent = new Intent(getApplicationContext(), Manager_academic.class);
+                startActivity(intent);
             }
         });
 
