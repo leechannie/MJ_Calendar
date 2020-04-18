@@ -7,38 +7,47 @@
     android:orientation="vertical">
 
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:orientation="horizontal">
+        android:background="#DDDDDD"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"/>
 
-        <ImageButton
-            android:id="@+id/BackBtn"
-            android:layout_width="30sp"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:gravity="center"
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50sp"-->
+<!--        android:orientation="horizontal">-->
 
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_back"-->
+<!--            android:layout_width="30sp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            android:background="#FFFFFF"-->
+<!--            android:gravity="center"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/backspace" />-->
 
-        <TextView
-            android:id="@+id/textView3"
-            android:background="#FFFFFF"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="관리자용"
-            android:layout_marginRight="30sp"
-            android:textSize="25sp"/>
-    </LinearLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/title_manger_setting"-->
+<!--            android:background="#FFFFFF"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:text="관리자용"-->
+<!--            android:layout_marginRight="30sp"-->
+<!--            android:textSize="25sp"/>-->
+<!--    </LinearLayout>-->
 
     <Button
         android:id="@+id/btn_academic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0sp"
+        android:layout_margin="10sp"
+        android:background="@drawable/manager_logout_button"
         android:textSize="15sp"
         android:text="학사 관리" />
 
@@ -46,7 +55,8 @@
         android:id="@+id/btn_notice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0sp"
+        android:layout_margin="10sp"
+        android:background="@drawable/manager_logout_button"
         android:textSize="15sp"
         android:text="공지사항" />
 
@@ -54,7 +64,8 @@
         android:id="@+id/btn_usermanage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0sp"
+        android:layout_margin="10sp"
+        android:background="@drawable/manager_logout_button"
         android:textSize="15sp"
         android:text="유저 관리" />
 

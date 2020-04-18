@@ -1,22 +1,18 @@
 package com.example.mjcalendar;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.MenuItem;
 
 
 /*
  Manager User의 Setting option을 접근하기 위한 page
  */
-public class Manager_setting extends AppCompatActivity {
+public class Manager_calendar extends AppCompatActivity {
     Button btn_logout;
     Button btn_academic;
     Button btn_usermanage;
@@ -27,7 +23,7 @@ public class Manager_setting extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_manager_setting );
+        setContentView( R.layout.activity_manager_calendar);
 
         btn_logout = (Button) findViewById( R.id.btn_logout );
         btn_academic = (Button) findViewById( R.id.btn_academic );
