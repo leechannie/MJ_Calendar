@@ -36,6 +36,8 @@
         <activity android:name=".Mypage_repassword" />
         <activity android:name=".MainCalendar" />
         <activity android:name=".MainCalendar_TodoList" />
+        <activity android:name=".Manager_setting" />
+        <activity android:name=".Manager_academic" />
     </application>
 
 </manifest>

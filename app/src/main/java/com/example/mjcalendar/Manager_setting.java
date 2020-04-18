@@ -32,8 +32,8 @@ public class Manager_setting extends AppCompatActivity {
 //        btn_back = (ImageButton) findViewById( R.id.btn_back);
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle( "관리자용" );
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         btn_logout.setOnClickListener( new Button.OnClickListener() {
             @Override
@@ -43,6 +43,24 @@ public class Manager_setting extends AppCompatActivity {
         });
 
         btn_academic.setOnClickListener( new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //페이지 넘기기
+                Intent intent = new Intent(getApplicationContext(), Manager_academic.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_usermanage.setOnClickListener( new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //페이지 넘기기
+                Intent intent = new Intent(getApplicationContext(), Manager_academic.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_notice.setOnClickListener( new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //페이지 넘기기
