@@ -20,6 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+
 public class Login_Register extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText register_name;
@@ -121,8 +122,23 @@ public class Login_Register extends AppCompatActivity {
         }
     }
 
-
+    // toast 공동 기능
     private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    // 회원 데이터 추가
+    private void profile(){
+        String name = ((EditText)findViewById(R.id.register_name)).getText().toString();
+
+        if(name.length() > 0){
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            //FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
+        }else{
+            startToast("이름을 입력해주세요");
+        }
+
     }
 }

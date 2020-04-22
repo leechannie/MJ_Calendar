@@ -79,6 +79,7 @@ public class Login_Main extends AppCompatActivity {
     private void loginUser() {
         String email = login_email.getText().toString();
         String password = login_pass.getText().toString();
+
         if (email.length() > 0 && password.length() > 0) { //세 개의 입력칸이 모두 값이 입력될때
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -105,7 +106,7 @@ public class Login_Main extends AppCompatActivity {
         }
     }
 
-
+    // toast 공동 기능
     private void startToast(String msg){
         Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
     }
