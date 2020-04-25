@@ -315,6 +315,8 @@ public class MainCalendar extends Activity {
 
     public void color_OnClickHandler(View view) {
         View dialogView = getLayoutInflater().inflate(R.layout.activity_calendar_fragment, null);
+
+
         ImageButton add_button = (ImageButton) dialogView.findViewById(R.id.add_button);
         Button modify_button = (Button) dialogView.findViewById(R.id.CalendarList);
         TextView everyday = (TextView) dialogView.findViewById(R.id.everyday);
@@ -325,10 +327,9 @@ public class MainCalendar extends Activity {
         EditText List_name = (EditText) add.findViewById(R.id.List_name);
         ImageButton save = (ImageButton) add.findViewById(R.id.save);
 
-//
-//        Bundle intent = getIntent().getExtras();
-//        modify_button.setText(intent.getString("TEXT"));
-        modify_button.setText(List_name.getText().toString());
+
+//        modify_button.setText(List_name.getText().toString());
+//        modify_button.setText(receiveStr);
 
 
 

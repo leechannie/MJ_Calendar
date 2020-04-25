@@ -20,10 +20,17 @@ public class MainCalendar_Fragment extends AppCompatActivity{
 
         final TextView everyday= findViewById(R.id.everyday);
         ImageButton add_button =  findViewById(R.id.add_button);
-        View add = getLayoutInflater().inflate(R.layout.activity_calendar_add, null);
-        final EditText List_name = (EditText) add.findViewById(R.id.List_name);
+        Button CalendarList = findViewById(R.id.CalendarList);
 
-        everyday.setText(List_name.getText());
+
+
+
+        Intent intent = getIntent();
+        String receiveStr = intent.getExtras().getString("sendData");
+
+//        modify_button.setText(List_name.getText().toString());
+        CalendarList.setText(receiveStr);
+
 
 
 

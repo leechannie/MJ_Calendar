@@ -2,6 +2,7 @@ package com.example.mjcalendar;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,8 @@ public class MainCalendar_Add extends AppCompatActivity {
 
         Button color_change = (Button) findViewById(R.id.color_change);
         ImageButton cancel = (ImageButton) findViewById(R.id.cancel);
+        ImageButton save = (ImageButton) findViewById(R.id.save);
+
 
         ImageButton time = (ImageButton) findViewById(R.id.time);
         Button time_detail_button = (Button) findViewById(R.id.time_detail);
@@ -39,10 +42,19 @@ public class MainCalendar_Add extends AppCompatActivity {
         Button add_detail = (Button) findViewById(R.id.add_detail);
          List_name = (EditText) findViewById(R.id.List_name);
 
+
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainCalendar_Add.this, MainCalendar_Fragment.class);
+                intent.putExtra("sendData",List_name.getText().toString());// 이 메서드를 통해 데이터를 전달합니다.
+                startActivity(intent);
             }
         });
         time.setOnClickListener(new View.OnClickListener() {
