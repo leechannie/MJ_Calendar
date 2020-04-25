@@ -85,5 +85,5 @@ public class Manager_academic extends AppCompatActivity {
         });
     }
 
-    private class
+//    private class
 }

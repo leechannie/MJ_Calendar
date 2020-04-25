@@ -325,7 +325,10 @@ public class MainCalendar extends Activity {
         EditText List_name = (EditText) add.findViewById(R.id.List_name);
         ImageButton save = (ImageButton) add.findViewById(R.id.save);
 
-        modify_button.setText(List_name.getText());
+//
+//        Bundle intent = getIntent().getExtras();
+//        modify_button.setText(intent.getString("TEXT"));
+        modify_button.setText(List_name.getText().toString());
 
 
 

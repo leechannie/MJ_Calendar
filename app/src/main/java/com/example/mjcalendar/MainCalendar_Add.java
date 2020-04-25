@@ -2,6 +2,7 @@ package com.example.mjcalendar;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,8 @@ public class MainCalendar_Add extends AppCompatActivity {
     int Start_y=0, Start_m=0, Start_d=0, Start_h=0, Start_mi=0;
     int End_y=0, End_m=0, End_d=0, End_h=0, End_mi=0;
 
+    EditText List_name;
+    String shared = "file";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +37,7 @@ public class MainCalendar_Add extends AppCompatActivity {
         Button clock_detail = (Button) findViewById(R.id.clock_detail);
         ImageButton add = (ImageButton) findViewById(R.id.add);
         Button add_detail = (Button) findViewById(R.id.add_detail);
-
+         List_name = (EditText) findViewById(R.id.List_name);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +92,24 @@ public class MainCalendar_Add extends AppCompatActivity {
         });
 
 
+        SharedPreferences sharedPreferences = getSharedPreferences(shared, 0);
+        String value = sharedPreferences.getString("key","");
+        List_name.setText(value);
+
+
+
     }
+    protected void onDestroy() {
+        super.onDestroy();
+
+        SharedPreferences  sharedPreferences = getSharedPreferences(shared, 0);
+        SharedPreferences.Editor editor  = sharedPreferences.edit();
+        String value = List_name.getText().toString();
+        editor.putString("key", value);
+        editor.commit();
+    }
+
+
 
 //    void show_time() {
 //        final List<String> ListItems = new ArrayList<>();
