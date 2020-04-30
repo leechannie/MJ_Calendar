@@ -31,8 +31,9 @@
             android:layout_height="50dp"
             android:ems="10"
             android:hint=" 이름"
-            android:inputType="textPersonName"
-            android:textColor="#AA686666" />
+            android:inputType="text"
+            android:textColor="#AA686666"
+            android:privateImeOptions="defaultInputmode=korean"/>
 
         <ImageButton
             android:id="@+id/delete_name"

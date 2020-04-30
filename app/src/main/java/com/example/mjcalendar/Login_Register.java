@@ -14,14 +14,19 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class Login_Register extends AppCompatActivity {
+    private static final String TAG = "MemberInitActivity";
     private FirebaseAuth mAuth;
     private EditText register_name;
     private EditText register_email;
@@ -94,6 +99,7 @@ public class Login_Register extends AppCompatActivity {
         String email = register_email.getText().toString();
         String password = register_pass.getText().toString();
         String passwordCheck = register_repass.getText().toString();
+        String name = register_name.getText().toString();
 
 
         if (email.length() > 0 && password.length() > 0 && passwordCheck.length() > 0) { //세 개의 입력칸이 모두 값이 입력될때
@@ -107,6 +113,7 @@ public class Login_Register extends AppCompatActivity {
                                     startToast("회원가입 성공");
                                     Intent intent = new Intent(getApplication(), Login_Main.class); //회원가입시 메인으로 이동
                                     startActivity(intent);
+                                    profile();
                                 } else {
                                     if (task.getException() != null) { //에러 발생시
                                         startToast("이메일 혹은 비밀번호가 틀렸습니다.");
@@ -127,14 +134,32 @@ public class Login_Register extends AppCompatActivity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
-    // 회원 데이터 추가
+    // 회원 이름 추가
     private void profile(){
         String name = ((EditText)findViewById(R.id.register_name)).getText().toString();
 
         if(name.length() > 0){
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            //FirebaseFirestore db = FirebaseFirestore.getInstance();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+            Login_Register_Data memberinfo = new Login_Register_Data (name);
+
+            if (user != null) {
+                db.collection("users").document(user.getUid()).set(memberinfo)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                //startToast("회원정보 등록을 성공하였습니다.");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                startToast( "이름 등록에 실패하였습니다.");
+                                Log.w(TAG, "Error writing document", e);
+                            }
+                        });
+            }
 
         }else{
             startToast("이름을 입력해주세요");
