@@ -103,29 +103,27 @@ public class Mypage_main extends AppCompatActivity {
 
     //이름 보여주기
     private  void show_name(){
-//        final TextView mypage_name = (TextView) findViewById(R.id.mypage_name);
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//
-//        DocumentReference docRef = db.collection("mjcalendar2020").document("users");
-//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    startToast("얍");
-//                    if (document.exists()) {
-//                        mypage_name.setText((String)document.getData().get("name"));
-//                        //Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-//                    } else {
-//                        mypage_name.setText("응 안돼 ");
-//                       // Log.d(TAG, "No such document");
-//                    }
-//                } else {
-//                    startToast("이름 가져오기에 실패");
-//                    //Log.d(TAG, "get failed with ", task.getException());
-//                }
-//            }
-//        });
+        final TextView mypage_name = (TextView) findViewById(R.id.mypage_name);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        DocumentReference docRef = db.collection("users").document(user.getUid());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        mypage_name.setText((String)document.getData().get("name"));
+                        //Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                    } else {
+                       // Log.d(TAG, "No such document");
+                    }
+                } else {
+                    startToast("이름 가져오기에 실패");
+                    //Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
     }
 }
