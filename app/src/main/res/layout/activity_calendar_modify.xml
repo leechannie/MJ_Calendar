@@ -24,6 +24,7 @@
             android:text="취소" />
 
         <ImageButton
+            android:id="@+id/delete_btn"
             android:layout_width="50dp"
             android:layout_height="45dp"
             android:layout_gravity="right"
@@ -38,7 +39,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="488dp"
         android:layout_marginTop="10dp"
         android:orientation="vertical">
 
@@ -78,6 +79,7 @@
                 android:layout_height="55dp"
                 android:text="시간 상세" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="360dp"
             android:layout_height="55dp"
@@ -122,4 +124,10 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="저장" />
 </LinearLayout>

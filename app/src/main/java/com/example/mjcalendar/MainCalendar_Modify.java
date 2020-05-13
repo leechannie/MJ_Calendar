@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -20,6 +22,9 @@ public class MainCalendar_Modify extends AppCompatActivity {
     int Start_y=0, Start_m=0, Start_d=0, Start_h=0, Start_mi=0;
     int End_y=0, End_m=0, End_d=0, End_h=0, End_mi=0;
 
+    EditText List_name;
+    String shared = "file";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +33,23 @@ public class MainCalendar_Modify extends AppCompatActivity {
         Button color_change = (Button) findViewById(R.id.color_change);
         ImageButton cancel = (ImageButton) findViewById(R.id.cancel);
         ImageButton time = (ImageButton) findViewById(R.id.time);
+        Button save = (Button) findViewById(R.id.save);
         Button time_detail_button = (Button) findViewById(R.id.time_detail);
         ImageButton clock = (ImageButton) findViewById(R.id.clock);
         Button clock_detail = (Button) findViewById(R.id.clock_detail);
         ImageButton add = (ImageButton) findViewById(R.id.add);
         Button add_detail = (Button) findViewById(R.id.add_detail);
-        EditText List_name = (EditText) findViewById(R.id.List_name);
+        List_name = (EditText) findViewById(R.id.List_name);
+
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainCalendar_Modify.this, MainCalendar_Fragment.class);
+                intent.putExtra("sendData",List_name.getText().toString());// 이 메서드를 통해 데이터를 전달합니다.
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -90,6 +106,19 @@ public class MainCalendar_Modify extends AppCompatActivity {
         });
 
 
+        SharedPreferences sharedPreferences = getSharedPreferences(shared, 0);
+        String value = sharedPreferences.getString("key","");
+        List_name.setText(value);
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+
+        SharedPreferences  sharedPreferences = getSharedPreferences(shared, 0);
+        SharedPreferences.Editor editor  = sharedPreferences.edit();
+        String value = List_name.getText().toString();
+        editor.putString("key", value);
+        editor.commit();
     }
 
 //    void show_time() {

@@ -321,6 +321,8 @@ public class MainCalendar extends Activity {
         Button modify_button = (Button) dialogView.findViewById(R.id.CalendarList);
         TextView everyday = (TextView) dialogView.findViewById(R.id.everyday);
 
+        everyday.setText("흠");
+
 
 
         final View add = getLayoutInflater().inflate(R.layout.activity_calendar_add, null);

@@ -22,8 +22,8 @@ public class MainCalendar_Add extends AppCompatActivity {
     int Start_y=0, Start_m=0, Start_d=0, Start_h=0, Start_mi=0;
     int End_y=0, End_m=0, End_d=0, End_h=0, End_mi=0;
 
-    EditText List_name;
-    String shared = "file";
+//    EditText List_name;
+//    String shared = "file";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +40,7 @@ public class MainCalendar_Add extends AppCompatActivity {
         Button clock_detail = (Button) findViewById(R.id.clock_detail);
         ImageButton add = (ImageButton) findViewById(R.id.add);
         Button add_detail = (Button) findViewById(R.id.add_detail);
-         List_name = (EditText) findViewById(R.id.List_name);
+//        List_name = (EditText) findViewById(R.id.List_name);
 
 
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -49,14 +49,14 @@ public class MainCalendar_Add extends AppCompatActivity {
                 finish();
             }
         });
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainCalendar_Add.this, MainCalendar_Fragment.class);
-                intent.putExtra("sendData",List_name.getText().toString());// 이 메서드를 통해 데이터를 전달합니다.
-                startActivity(intent);
-            }
-        });
+//        save.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainCalendar_Add.this, MainCalendar_Fragment.class);
+//                intent.putExtra("sendData",List_name.getText().toString());// 이 메서드를 통해 데이터를 전달합니다.
+//                startActivity(intent);
+//            }
+//        });
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,23 +103,23 @@ public class MainCalendar_Add extends AppCompatActivity {
             }
         });
 
-
-        SharedPreferences sharedPreferences = getSharedPreferences(shared, 0);
-        String value = sharedPreferences.getString("key","");
-        List_name.setText(value);
+//
+//        SharedPreferences sharedPreferences = getSharedPreferences(shared, 0);
+//        String value = sharedPreferences.getString("key","");
+//        List_name.setText(value);
 
 
 
     }
-    protected void onDestroy() {
-        super.onDestroy();
-
-        SharedPreferences  sharedPreferences = getSharedPreferences(shared, 0);
-        SharedPreferences.Editor editor  = sharedPreferences.edit();
-        String value = List_name.getText().toString();
-        editor.putString("key", value);
-        editor.commit();
-    }
+//    protected void onDestroy() {
+//        super.onDestroy();
+//
+//        SharedPreferences  sharedPreferences = getSharedPreferences(shared, 0);
+//        SharedPreferences.Editor editor  = sharedPreferences.edit();
+//        String value = List_name.getText().toString();
+//        editor.putString("key", value);
+//        editor.commit();
+//    }
 
 
 

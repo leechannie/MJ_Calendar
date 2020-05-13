@@ -41,7 +41,8 @@
             <Button
                 android:id="@+id/CalendarList"
                 android:layout_width="match_parent"
-                android:layout_height="125dp" />
+                android:layout_height="125dp"
+                android:text="일정을 추가해주세요" />
 
         </LinearLayout>
     </ScrollView>
