@@ -43,7 +43,7 @@ public class Mypage_repassword extends AppCompatActivity {
         check_repass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                send();
+                set_repass();
             }
         });
 
@@ -66,7 +66,7 @@ public class Mypage_repassword extends AppCompatActivity {
     }
 
     //비밀번호 재설정 기능
-    private void send() {
+    private void set_repass() {
         String email = ((EditText) findViewById(R.id.send_email)).getText().toString();
 
         if (email.length() > 0 ){
