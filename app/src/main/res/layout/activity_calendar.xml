@@ -17,7 +17,9 @@
             android:layout_height="35dp"
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="5dp"
-            android:background="@drawable/account" />
+            android:background="@drawable/account"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"/>
 
 
         <Button

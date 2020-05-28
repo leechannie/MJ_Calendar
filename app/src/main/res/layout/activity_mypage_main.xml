@@ -18,7 +18,9 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:background="@drawable/account" />
+            android:background="@drawable/account"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"/>
     </FrameLayout>
 
     <TextView

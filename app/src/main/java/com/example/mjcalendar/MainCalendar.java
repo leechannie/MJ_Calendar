@@ -1,18 +1,15 @@
 package com.example.mjcalendar;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,9 +23,27 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.cardview.widget.CardView;
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.io.InputStream;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 public class MainCalendar extends Activity {
+    ImageButton my_info_button;
 
     LinearLayout schedule;
 
@@ -66,11 +81,11 @@ public class MainCalendar extends Activity {
 //        ImageButton friends_navi = (ImageButton) findViewById(R.id.friends_navi);
 //        ImageButton notification_navi = (ImageButton) findViewById(R.id.notification_navi);
 
-        ImageButton my_info_button = (ImageButton) findViewById(R.id.my_info);
+        my_info_button = (ImageButton) findViewById(R.id.my_info);
         ImageButton search_button = (ImageButton) findViewById(R.id.search);
 
 
-
+        show_image();
         my_info_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -368,6 +383,46 @@ public class MainCalendar extends Activity {
     }
 
 
+    // 이미지 보여주기
+    private void show_image(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        DocumentReference docRef = db.collection("users").document(user.getUid());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if ((String) document.getData().get("image") != ""){
+                        if (document.exists()) {
+                            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                            StrictMode.setThreadPolicy(policy);
+                            String image_url = new String((String) document.getData().get("image"));
+                            Uri url = Uri.parse(image_url);
+                            try {
+                                Bitmap bitmap = BitmapFactory.decodeStream((InputStream) new URL(image_url).getContent());
+                                my_info_button.setImageBitmap(bitmap);
+                            } catch (Exception e) {
+                                startToast("실패" + e);
+                            }
+                        }else {
+                            // Log.d(TAG, "No such document");
+                        }
+                    } else {
+                        // Log.d(TAG, "No such document");
+                    }
+                } else {
+                    startToast("이미지 가져오기에 실패");
+                }
+            }
+        });
+    }
+
+    // toast 띄우기
+    private void startToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
 
 }
 //package com.example.mjcalendar;

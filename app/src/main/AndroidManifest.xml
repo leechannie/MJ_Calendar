@@ -37,7 +37,7 @@
         <activity android:name=".MainCalendar" />
         <activity android:name=".MainCalendar_TodoList" />
         <activity android:name=".Manager_setting" />
-        <activity android:name=".Manager_academic" />
+        <activity android:name=".Manager_academic"/>
     </application>
 
 </manifest>

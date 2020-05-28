@@ -1,12 +1,12 @@
 package com.example.mjcalendar;
 
-import android.widget.EditText;
-
 public class Login_Register_Data {
     private String name;
+    private String image;
 
-    public Login_Register_Data(String name) {
+    public Login_Register_Data(String name,String image) {
         this.name = name;
+        this.image = image;
     }
 
     public String getName(){
@@ -15,5 +15,11 @@ public class Login_Register_Data {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public String getImage(){ return this.image;}
+
+    public void setImage(String image){
+        this.image = image;
     }
 }

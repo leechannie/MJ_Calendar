@@ -1,11 +1,7 @@
 package com.example.mjcalendar;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,15 +9,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
@@ -32,6 +29,7 @@ public class Login_Register extends AppCompatActivity {
     private EditText register_email;
     private EditText register_pass;
     private EditText register_repass;
+    private ImageView register_ima;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +42,7 @@ public class Login_Register extends AppCompatActivity {
         register_pass = (EditText) findViewById(R.id.register_pass);
         register_repass = (EditText) findViewById(R.id.register_repass);
 
-        ImageView register_ima = (ImageView) findViewById(R.id.register_ima);
+        //register_ima = (ImageView) findViewById(R.id.register_ima);
 
         Button register = (Button) findViewById(R.id.register);
 
@@ -102,7 +100,7 @@ public class Login_Register extends AppCompatActivity {
         String name = register_name.getText().toString();
 
 
-        if (email.length() > 0 && password.length() > 0 && passwordCheck.length() > 0) { //세 개의 입력칸이 모두 값이 입력될때
+        if (email.length() > 0 && password.length() > 0 && passwordCheck.length() > 0 && name.length() > 0) { //네 개의 입력칸이 모두 값이 입력될때
             if (password.equals(passwordCheck)) { //비밀번호 확인
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -125,7 +123,7 @@ public class Login_Register extends AppCompatActivity {
                 startToast("비밀번호가 일치하지 않습니다.");
             }
         } else {
-            startToast("이메일 또는 비밀번호를 입력해주세요");
+            startToast("가입정보를 모두 입력해주세요");
         }
     }
 
@@ -135,14 +133,14 @@ public class Login_Register extends AppCompatActivity {
     }
 
     // 회원 이름 추가
-    private void profile(){
-        String name = ((EditText)findViewById(R.id.register_name)).getText().toString();
+    private void profile() {
+        String name = ((EditText) findViewById(R.id.register_name)).getText().toString();
+        String image = "";
 
-        if(name.length() > 0){
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            Login_Register_Data memberinfo = new Login_Register_Data (name);
+            Login_Register_Data memberinfo = new Login_Register_Data(name, image);
 
             if (user != null) {
                 db.collection("users").document(user.getUid()).set(memberinfo)
@@ -155,15 +153,11 @@ public class Login_Register extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                startToast( "이름 등록에 실패하였습니다.");
-                                Log.w(TAG, "Error writing document", e);
+                                startToast("이름 등록에 실패하였습니다.");
                             }
                         });
             }
 
-        }else{
-            startToast("이름을 입력해주세요");
-        }
-
     }
+
 }
