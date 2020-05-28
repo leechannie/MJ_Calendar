@@ -40,7 +40,6 @@ public class Mypage_main extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private StorageReference mStorageRef;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -311,15 +310,26 @@ public class Mypage_main extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                 // Firebase Storage 삭제
+                startToast("탈퇴 되었습니다. 감사합니다.");
                 Intent intent = new Intent(getApplicationContext(),Login_Main.class);
                 startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                startToast("탈퇴를 다시 시도해주세요.");
+             // storage는 꼭 없을 수도 있음 그래서 실패할 수 있음.
+                startToast("탈퇴 되었습니다. 감사합니다.");
+                Intent intent = new Intent(getApplicationContext(),Login_Main.class);
+                startActivity(intent);
             }
         });
+    }
+
+    //뒤로 갈 때 새로운 창으로 띄우기
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), MainCalendar.class);
+        startActivity(intent);
     }
 
 }
